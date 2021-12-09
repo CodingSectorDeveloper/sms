@@ -1,0 +1,62 @@
+{% extends "admin_base.html" %}
+
+{% block title %} Employee {% endblock %}
+
+{% block head %}
+
+    <style>
+        .space-between{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plus-icon{
+            font-size: 20px;
+            color: white;
+            background-color: rgb(79,68,224);
+            padding: 10px;
+            border-radius: 100px;
+        }
+        .item{
+            margin: 20px 0px;
+            padding: 15px;
+            background-color: white;
+            MARGIN-RIGHT: 30PX;
+            border-radius: 5px;
+            width: 20vw;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,0.300);
+        }
+        button{
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            background-color: transparent;
+            margin: 5px;
+        }
+        button a{
+            text-decoration: none;
+        }
+        .reject{
+            background-color: red;
+        }
+        .reject a{
+            color: white;
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class="main__container">
+    <div class="space-between">
+        <h1>Employee</h1>
+    </div>
+    <div class="container-div" style="margin-top: 20px;">
+        {% for i in employee %}
+            <div class="space-between">{{forloop.counter}}. {{i.employee_id}} - {{i.password}}</div>
+        {% endfor %}
+    </div>
+</div> 
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock body %}

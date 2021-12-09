@@ -1,0 +1,57 @@
+{% extends "admin_base.html" %}
+
+{% block title %} Profit & Loss {% endblock %}
+
+{% block head %}
+
+    <style>
+        .space-between{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .plus-icon{
+            font-size: 20px;
+            color: white;
+            background-color: rgb(79,68,224);
+            padding: 10px;
+            border-radius: 100px;
+        }
+    </style>
+
+{% endblock head %}
+
+{% block body %}
+<div class="main__container">
+    <h1>Profit & Loss</h1>
+    <hr>
+    <div class="charts__right__cards">
+        <div class="card2">
+            <h1>Profit</h1>
+            <h3>&#8377; {{profit}}</h1>
+        </div>
+        <div class="card4">
+            <h1>Loss</h1>
+            <h3>&#8377; {{loss}}</h1>
+        </div>
+        <div class="card1">
+            <h1>Investment</h1>
+            <h3>&#8377; {{investment}}</h1>
+        </div>
+        <div class="card3">
+            <h1>Income</h1>
+            <h3>&#8377; {{income}}</h1>
+        </div>
+    </div>
+    <h1 style="margin-top: 20px;">Income Details</h1>
+    <hr>
+        <div class="container-div" style="margin-top: 20px;">
+            {% for i in emis %}
+            <div class="space-between">
+                <p style="margin: 5px 0px;">{{forloop.counter}}. <a style="color: black; text-decoration: none;">{{i.enrollment_id}} - &#8377; {{i.amount}}</a></p>
+            </div>
+            {% endfor %}
+        </div> 
+</div>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock body %}
